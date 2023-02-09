@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(245, 147, 147);
+        }
+        
+        button {
+            background-color: #dff744;
+            width: 25%;
+            padding: 15px;
+            color: black;
+            border: none;
+            float: center;
+            font-size: 15px;
+        }
+        
+        label[for=id],
+        label[for=name],
+        label[for=dsg],
+        label[for=sal],
+        label[for=doj] {
+            font-size: 17px;
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        
+        form {
+            border: 8px solid #f1f1f1;
+            background-color: bisque;
+        }
+        
+        input[type=number],
+        input[type=date],
+        input[type=text] {
+            width: 50%;
+            font-size: 15px;
+            margin: 8px 0px;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid rgb(0, 208, 255);
+            box-sizing: border-box;
+        }
+        
+        input[type=radio] {
+            height: 18px;
+            width: 18px;
+        }
+        
+        button:hover {
+            opacity: 0.7;
+            background-color: rgb(15, 216, 45);
+        }
+        
+        .container {
+            padding: 50px;
+            background-color: rgb(231, 214, 143);
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <h1>Employee Form</h1>
+    </center>
+    <form action="#" method="post">
+        {% csrf_token %} {% load static %}
+        <center>
+            <div class="container">
+                <label for='id'><b>Employee ID: </b></label>
+                <input type='number' placeholder="Enter Employee ID" name="id" required><br>
+                <label for='name'><b>Employee Name : </b></label>
+                <input type='text' placeholder="Enter Employee Name" name='name' required><br>
+                <span>
+                <label for='gender'><b>Gender : </b></label>
+                <input type='radio' name='gender' value='male' required>
+                <label><b>Male</b></label>
+                <input type='radio' name='gender' value='female' required>
+                <label><b>Female</b></label><br>
+                </span>
+                <label for='dsg'><b>Designation :  </b></label>
+                <input type="text" placeholder="Enter Employee Designation" name="dsg" required><br>
+                <label for='sal'><b>Salary : </b></label>
+                <input type="text" placeholder="Enter Employee Salary" name="sal" required><br>
+                <label for='doj'><b>Date of Joining : </b></label>
+                <input type="date" name="doj" required><br>
+                <button type="submit"><b>Submit</b></button><br>
+            </div>
+        </center>
+    </form>
+    <center>
+        <a href="http://localhost:8000/show_table">Show Employee Data</a>
+    </center>
+
+</body>
+
+</html>
